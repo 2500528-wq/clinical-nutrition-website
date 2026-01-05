@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Samreen Ashraf | Clinical Nutrition</title>
+
+  <!-- Fonts & Icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+  <style>
+    *{margin:0;padding:0;box-sizing:border-box;font-family:'Roboto',sans-serif}
+    html{scroll-behavior:smooth}
+    body{overflow-x:hidden}
+
+    /* HEADER */
+    header{
+      position:fixed;
+      top:0;
+      width:100%;
+      background:rgba(11,60,73,0.95);
+      padding:16px 60px;
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      z-index:1000;
+    }
+
+    header .logo{
+      color:#fff;
+      font-size:22px;
+      font-weight:700;
+    }
+
+    /* NAVIGATION */
+    .menu{list-style:none;display:flex;gap:30px}
+    .menu li{position:relative}
+    .menu a{color:#fff;text-decoration:none;font-weight:500}
+
+    /* DROPDOWN */
+    .dropdown-menu{
+      position:absolute;
+      top:35px;
+      left:0;
+      background:#fff;
+      min-width:220px;
+      display:none;
+      border-radius:6px;
+      box-shadow:0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .dropdown-menu li{padding:12px 16px}
+    .dropdown-menu li a{color:#0b3c49}
+    .dropdown:hover .dropdown-menu{display:block}
+
+    /* HERO SECTION */
+    .hero{
+      height:100vh;
+      background:linear-gradient(rgba(11,60,73,0.6),rgba(11,60,73,0.6)),url('https://images.unsplash.com/photo-1543362906-acfc16c67564?auto=format&fit=crop&w=1950&q=80');
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      text-align:center;
+      color:#fff;
+      padding:0 20px;
+    }
+
+    .hero h1{font-size:48px;margin-bottom:15px}
+    .hero p{font-size:20px;max-width:750px;line-height:1.6}
+
+    /* SECTIONS */
+    section{
+      padding:110px 60px;
+      max-width:1150px;
+      margin:auto;
+    }
+
+    section h2{
+      text-align:center;
+      color:#0b3c49;
+      font-size:34px;
+      margin-bottom:40px;
+    }
+
+    .box{
+      background:#fff;
+      padding:35px;
+      border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      line-height:1.7;
+    }
+
+    /* SERVICES */
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+      gap:30px;
+    }
+
+    .card{
+      background:#fff;
+      padding:30px;
+      border-radius:14px;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+      text-align:center;
+    }
+
+    .card i{font-size:34px;color:#0b3c49;margin-bottom:12px}
+
+    /* BLOG */
+    .blog-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+      gap:30px;
+    }
+
+    .blog{
+      background:#fff;
+      border-radius:14px;
+      overflow:hidden;
+      box-shadow:0 6px 18px rgba(0,0,0,0.08);
+    }
+
+    .blog img{width:100%;height:180px;object-fit:cover}
+    .blog div{padding:20px}
+
+    /* CONTACT */
+    .contact p{margin-bottom:10px}
+
+    /* FOOTER */
+    footer{
+      background:#0b3c49;
+      color:#fff;
+      text-align:center;
+      padding:30px 20px;
+    }
+
+    /* WHATSAPP */
+    .whatsapp{
+      position:fixed;
+      bottom:22px;
+      right:22px;
+      background:#25D366;
+      color:#fff;
+      width:58px;
+      height:58px;
+      border-radius:50%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      font-size:30px;
+      box-shadow:0 5px 14px rgba(0,0,0,0.35);
+      text-decoration:none;
+    }
+
+    /* RESPONSIVE */
+    @media(max-width:768px){
+      header{padding:14px 20px;flex-direction:column}
+      .menu{flex-wrap:wrap;justify-content:center;gap:18px}
+      .hero h1{font-size:34px}
+      section{padding:90px 20px}
+    }
+  /* ACCORDION (Hospital Style) */
+.accordion-header{
+  width:100%;
+  text-align:left;
+  background:#0b3c49;
+  color:#fff;
+  padding:16px 20px;
+  border:none;
+  border-radius:8px;
+  font-size:18px;
+  font-weight:500;
+  cursor:pointer;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  margin-top:15px;
+}
+
+.accordion-content{
+  overflow:hidden;
+  max-height:0;
+  transition:max-height 0.4s ease;
+  background:#f9f9f9;
+  border-radius:8px;
+  padding:0 20px;
+}
+
+.accordion-content p{
+  padding:20px 0;
+}
+
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">Samreen Ashraf</div>
+  <ul class="menu">
+    <li><a href="#home">Home</a></li>
+
+    <li class="dropdown">
+      <a href="#">About ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="#about">Profile</a></li>
+        <li><a href="#experience">Experience</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">Services ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="#services">Clinical Nutrition</a></li>
+        <li><a href="#services">Diet Planning</a></li>
+        <li><a href="#services">Hospital Practice</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#">Media ▾</a>
+      <ul class="dropdown-menu">
+        <li><a href="#blog">Blog</a></li>
+      </ul>
+    </li>
+
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div>
+    <h1>Clinical Nutrition & Dietetics</h1>
+    <p>Hospital-based nutrition care, therapeutic diet planning, and patient-centered wellness support.</p>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <h2>About</h2>
+  <div class="box">
+    <p><strong>Samreen Ashraf</strong> is a Nutrition Science graduate (UMT Lahore, 2025) with strong academic and hospital-based clinical training in dietetics, therapeutic nutrition, and patient care.</p>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <h2>Experience</h2>
+  <div class="box">
+    <p>Clinical practice at Indus Hospital, Jinnah Hospital, Punjab Cardiology PIC, Social Security Hospital, University Medical Center, and Surraya Azeem Trust Hospital.</p>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section id="services" class="section">
+  <h2>Clinical Services</h2>
+
+  <div class="accordion">
+    <button class="accordion-header">Therapeutic Diets <span class="icon">+</span></button>
+    <div class="accordion-content">
+      <p><strong>Disease-Specific Nutrition Planning</strong><br>
+      Personalized therapeutic diet plans designed to support the management of medical conditions such as diabetes, hypertension, digestive disorders, and food intolerances. Each plan is evidence-based and tailored to your health needs, lifestyle, and goals.</p>
+    </div>
+
+    <button class="accordion-header">Cardiac Nutrition <span class="icon">+</span></button>
+    <div class="accordion-content">
+      <p><strong>Heart & Metabolic Care</strong><br>
+      Specialized nutrition strategies focused on improving heart health, managing cholesterol, blood pressure, and metabolic conditions. These plans promote long-term cardiovascular wellness through balanced, sustainable eating habits.</p>
+    </div>
+
+    <button class="accordion-header">Maternal Nutrition <span class="icon">+</span></button>
+    <div class="accordion-content">
+      <p><strong>Pregnancy & Postnatal Care</strong><br>
+      Comprehensive nutrition support for women during pregnancy and after childbirth. This service ensures optimal nutrient intake for maternal health, fetal development, recovery, and breastfeeding support.</p>
+    </div>
+
+    <button class="accordion-header">Nutrition Education <span class="icon">+</span></button>
+    <div class="accordion-content">
+      <p><strong>Teaching & Counseling</strong><br>
+      One-on-one nutrition education and counseling sessions designed to build knowledge, encourage healthy choices, and support behavior change. Clients gain practical skills to maintain a balanced diet and long-term well-being.</p>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG -->
+<section id="blog">
+  <h2>Blog</h2>
+  <div class="box">
+    <button class="accordion-header">
+  Role of Nutrition in Recovery
+  <span class="icon">+</span>
+</button>
+<div class="accordion-content">
+
+      <p>Explore expert insights on how proper nutrition supports healing, strengthens immunity, and aids in the management of acute and chronic diseases. This blog shares evidence-based guidance, practical tips, and the latest nutrition research to help you make informed health decisions.</p>
+    </div>
+  </div>
+</section>
+<section id="appointment" class="section">
+  <h2>Book an Appointment</h2>
+  <form class="appointment-form">
+    <input type="text" name="name" placeholder="Full Name" required>
+    <input type="email" name="email" placeholder="Email Address" required>
+    <input type="tel" name="phone" placeholder="Phone Number" required>
+    <textarea name="message" placeholder="Your Concern / Message" rows="4" required></textarea>
+    <button type="submit">Submit Appointment Request</button>
+  </form>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <h2>Contact</h2>
+  <div class="box contact">
+    <p><strong>Email:</strong> Samreenashraf823@gmail.com</p>
+    <p><strong>WhatsApp:</strong> 0326-1014728</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Samreen Ashraf | Clinical Nutrition</p>
+</footer>
+
+<a class="whatsapp" href="https://wa.me/923261014728" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+
+document.querySelector('.appointment-form').addEventListener('submit', function(e){
+  e.preventDefault();
+
+  const name=this.querySelector('input[type="text"]').value;
+  const email=this.querySelector('input[type="email"]').value;
+  const phone=this.querySelector('input[type="tel"]').value;
+  const msg=this.querySelector('textarea').value;
+
+  const text=
+    `Appointment Request:%0A`+
+    `Name: ${name}%0A`+
+    `Email: ${email}%0A`+
+    `Phone: ${phone}%0A`+
+    `Message: ${msg}`;
+
+  window.open(`https://wa.me/923261014728?text=${text}`,'_blank');
+});
+</script>
+
+</script>
+<script>
+document.querySelectorAll(".accordion-header").forEach(button => {
+  button.addEventListener("click", () => {
+
+    const currentContent = button.nextElementSibling;
+    const currentIcon = button.querySelector(".icon");
+
+    // Close all others
+    document.querySelectorAll(".accordion-content").forEach(content => {
+      if (content !== currentContent) {
+        content.style.maxHeight = null;
+      }
+    });
+
+    document.querySelectorAll(".accordion-header .icon").forEach(icon => {
+      if (icon !== currentIcon) {
+        icon.textContent = "+";
+      }
+    });
+
+    // Toggle current
+    if (currentContent.style.maxHeight) {
+      currentContent.style.maxHeight = null;
+      currentIcon.textContent = "+";
+    } else {
+      currentContent.style.maxHeight = currentContent.scrollHeight + "px";
+      currentIcon.textContent = "−";
+    }
+  });
+});
+</script>
+<script>
+document.querySelector('.appointment-form').addEventListener('submit', function(e){
+  e.preventDefault(); // Form default submit roko
+
+  // Values capture karo
+  const name = this.querySelector('input[name="name"]').value.trim();
+  const email = this.querySelector('input[name="email"]').value.trim();
+  const phone = this.querySelector('input[name="phone"]').value.trim();
+  const message = this.querySelector('textarea[name="message"]').value.trim();
+
+  if(!name || !email || !phone || !message){
+    alert("Please fill all fields.");
+    return;
+  }
+
+  // WhatsApp text encode karo
+  const whatsappText = `Appointment Request:%0AName: ${name}%0AEmail: ${email}%0APhone: ${phone}%0AMessage: ${message}`;
+
+  // WhatsApp open in new tab
+  window.open(`https://wa.me/923261014728?text=${whatsappText}`, '_blank');
+});
+</script>
+
+</body>
+</html>
